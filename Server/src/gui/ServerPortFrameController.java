@@ -69,6 +69,7 @@ public class ServerPortFrameController implements Initializable {
 
 	public void appendToConsole(String str) {
 		consoleArea.appendText(str + "\n");
+		///////////////////////////////////////////////////////
 	}
 
 }
