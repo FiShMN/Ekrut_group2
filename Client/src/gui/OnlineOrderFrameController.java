@@ -1,34 +1,50 @@
 package gui;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
-public class OnlineOrderFrameController implements Initializable {
-
-    @FXML
-    private TableColumn<?, ?> machineLocation;
+public class OnlineOrderFrameController {
 
     @FXML
-    private TableColumn<?, ?> machineNumber;
-    
-    @FXML
-    private MenuItem menuItemDelivery;
+    private MenuButton menuBtnSelectOnlineOrder;
 
     @FXML
     private MenuItem menuItemPickUp;
 
     @FXML
-    private TableView<?> vendingMachineTable;  //Create Vending Machine Entity
+    private MenuItem menuItemDelivery;
+
+    @FXML
+    private Label lblDeliveryAddr;
+
+    @FXML
+    private TextField txtDeliveryAddr;
+
+    @FXML
+    private Button btnBack;
+
+    @FXML
+    private Button btnContinue;
+
+    @FXML
+    private TableView<?> vendingMachineTable;
+
+    @FXML
+    private TableColumn<?, ?> machineNumCol;
+
+    @FXML
+    private TableColumn<?, ?> locationCol;
 
     @FXML
     void SelectVendingMachine(ActionEvent event) {
+
     }
 
     @FXML
@@ -36,13 +52,14 @@ public class OnlineOrderFrameController implements Initializable {
 
     }
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		vendingMachineTable.setVisible(false);
-		
-		
-	}
-    
-    
+    @FXML
+    void backToHomePage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void continueToOrder(ActionEvent event) {
+
+    }
 
 }
