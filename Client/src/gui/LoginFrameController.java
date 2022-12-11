@@ -1,8 +1,9 @@
+package gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-public class PleaseProvideControllerClassName {
+public class LoginFrameController {
 
     @FXML
     private Label lblAlert;
