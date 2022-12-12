@@ -11,10 +11,13 @@ public class CusromerFrameController{
     private Label lblHelloUser;
 
     @FXML
-    private Button btnNewOrder;
+    private Button btnLocalOrder;
 
     @FXML
     private Button btnExit;
+
+    @FXML
+    private Button btnOnlineOrder;
 
     @FXML
     void exit(ActionEvent event) {
@@ -22,9 +25,13 @@ public class CusromerFrameController{
     }
 
     @FXML
-    void newOrder(ActionEvent event) {
+    void newLocalOrder(ActionEvent event) {
 
     }
+
+    @FXML
+    void newOnlineOrder(ActionEvent event) {
+
+    }
+
 }
-
-
