@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="OrdersReportController">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: pink; -fx-background-image: cat;">
+         <children>
+            <Label layoutX="40.0" layoutY="49.0" prefHeight="22.0" prefWidth="80.0" text="Orders Report:" />
+            <Label layoutX="40.0" layoutY="129.0" text="Order per Machine shown by Date:" />
+            <MenuButton fx:id="BntChooseMachine" layoutX="351.0" layoutY="308.0" mnemonicParsing="false" onAction="#chooseMachine" text="MenuButton">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </MenuButton>
+            <Label layoutX="351.0" layoutY="272.0" text="Choose Machine:" />
+            <BarChart fx:id="BarChartForOrdersPerMachine" layoutX="21.0" layoutY="158.0" prefHeight="297.0" prefWidth="310.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <Button fx:id="BntBack" layoutX="54.0" layoutY="733.0" mnemonicParsing="false" onAction="#BackToPreviosePage" text="Back" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
