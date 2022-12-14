@@ -3,7 +3,6 @@ package gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuButton;
@@ -34,11 +33,14 @@ public class ReaportSearchFrameController {
     private MenuButton selectReportType;
 
     @FXML
-    private DatePicker selectReportDate;
-    
-    @FXML
     private Button BntBack;
-    
+
+    @FXML
+    private MenuButton selectMonth;
+
+    @FXML
+    private MenuButton selectYear;
+
     @FXML
     void BackToPreviosePage(ActionEvent event) {
 
@@ -55,4 +57,3 @@ public class ReaportSearchFrameController {
     }
 
 }
-

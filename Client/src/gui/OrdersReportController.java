@@ -1,28 +1,24 @@
 package gui;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
+import javafx.scene.layout.AnchorPane;
 
 public class OrdersReportController {
 
     @FXML
-    private MenuButton BntChooseMachine;
+    private AnchorPane BarChrt;
 
     @FXML
-    private BarChart<?, ?> BarChartForOrdersPerMachine;
+    private BarChart<?, ?> BarChartForOrdersPerProductsMachine;
 
     @FXML
     private Button BntBack;
 
     @FXML
     void BackToPreviosePage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void chooseMachine(ActionEvent event) {
 
     }
 

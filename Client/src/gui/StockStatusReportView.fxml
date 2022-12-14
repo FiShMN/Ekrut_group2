@@ -2,38 +2,25 @@
 
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="gui.StockStatusReportController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StockStatusReportController">
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="800.0">
+      <AnchorPane layoutX="3.0" prefHeight="750.0" prefWidth="800.0">
          <children>
-            <Label layoutX="33.0" layoutY="29.0" text="Stock Status Report:" />
-            <LineChart fx:id="LineDiagramForStockByCategory" layoutX="69.0" layoutY="153.0" prefHeight="200.0" prefWidth="250.0">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </LineChart>
-            <Label layoutX="55.0" layoutY="127.0" text="Products Stock by Date Shown by Category:" />
-            <MenuButton fx:id="BntChooseFoodCategory" layoutX="331.0" layoutY="183.0" mnemonicParsing="false" onAction="#chooseFoodCategory" text="MenuButton">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
-            <Label layoutX="331.0" layoutY="153.0" text="Choose Category:" />
-            <BarChart fx:id="BarChartStockByMachine" layoutX="81.0" layoutY="471.0" prefHeight="200.0" prefWidth="250.0">
+            <Label layoutX="33.0" layoutY="29.0" text="Stock Status Report:" textFill="#4800ff">
+               <font>
+                  <Font name="HP Simplified Jpan Regular" size="28.0" />
+               </font></Label>
+            <BarChart fx:id="BarChartStockByMachine" layoutX="14.0" layoutY="173.0" prefHeight="400.0" prefWidth="700.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -41,24 +28,22 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </BarChart>
-            <Label layoutX="41.0" layoutY="437.0" text="Products Stock by Machine:" />
-            <MenuButton fx:id="BntChooseMachine" layoutX="331.0" layoutY="507.0" mnemonicParsing="false" onAction="#chooseMachine" text="MenuButton">
+            <Label layoutX="45.0" layoutY="85.0" text="Products Stock by Machine:">
+               <font>
+                  <Font name="HP Simplified Jpan Regular" size="15.0" />
+               </font></Label>
+            <MenuButton fx:id="BntChooseMachine" layoutX="222.0" layoutY="80.0" mnemonicParsing="false" onAction="#chooseMachine" text="Ort Braude College">
               <items>
                 <MenuItem mnemonicParsing="false" text="Action 1" />
                 <MenuItem mnemonicParsing="false" text="Action 2" />
               </items>
             </MenuButton>
-            <Label layoutX="331.0" layoutY="471.0" text="Choose Machine:" />
-            <PieChart fx:id="PaiChartForStockByRegion" layoutX="501.0" layoutY="288.0" prefHeight="200.0" prefWidth="250.0" />
-            <MenuButton fx:id="BntToChooseRegion" layoutX="641.0" layoutY="507.0" mnemonicParsing="false" onAction="#ChooseRegion" text="MenuButton">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </MenuButton>
-            <Label layoutX="535.0" layoutY="511.0" text="Choose Region:" />
-            <Label layoutX="521.0" layoutY="253.0" text="Products Stock By Region:" />
-            <Button fx:id="BntBack" layoutX="61.0" layoutY="743.0" mnemonicParsing="false" onAction="#BackToPreviosePage" text="Back" />
+            <Button fx:id="BntBack" layoutX="36.0" layoutY="614.0" mnemonicParsing="false" onAction="#BackToPreviosePage" text="Back" />
+            <ImageView fitHeight="500.0" fitWidth="600.0" layoutX="56.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Products%20Stock%20by%20Machine.PNG" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
