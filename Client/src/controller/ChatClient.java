@@ -13,6 +13,11 @@ import gui.ClientUI;
 import java.io.*;
 import java.util.ArrayList;
 
+import Entities.Product;
+import Entities.Message;
+import Entities.Order;
+
+
 /**
  * This class overrides some of the methods defined in the abstract
  * superclass in order to give more functionality to the client.

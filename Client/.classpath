@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry excluding="gui/OL-Online/|gui/OL-Online/" kind="src" path="src"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/OCSF"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SharedEkrut"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
