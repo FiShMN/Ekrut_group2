@@ -7,8 +7,8 @@ public class Customer extends User implements Serializable{
 	private int accountNum;
 	private String creditCard;
 	public Customer(String Fname, String lastName, String id, String phoneNumber, String email, String userName,
-			String password, String permissions,boolean isLoggedIn, int accountNum, String creditCard ) {
-		super(Fname, lastName, id, phoneNumber, email, userName, password, permissions,isLoggedIn);
+			String password, String role,boolean isLoggedIn, int accountNum, String creditCard ) {
+		super(Fname, lastName, id, phoneNumber, email, userName, password, role,isLoggedIn);
 		this.accountNum = accountNum;
 		this.creditCard = creditCard;
 	}

@@ -9,12 +9,12 @@ public class User implements Serializable{
 	private String email;
 	private String userName;
 	private String password;
-	private String permissions;
+	private String role;
 	private boolean isLoggedIn;
 	
 	
 	public User(String Fname, String lastName, String id, String phoneNumber, String email, String userName, String password,
-			String permissions, boolean isLoggedIn) {
+			String role, boolean isLoggedIn) {
 		super();
 		this.Fname = Fname;
 		this.lastName = lastName;
@@ -23,7 +23,7 @@ public class User implements Serializable{
 		this.email = email;
 		this.userName = userName;
 		this.password = password;
-		this.permissions = permissions;
+		this.role = role;
 		this.isLoggedIn=isLoggedIn;
 		
 	}
@@ -72,11 +72,11 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPermissions() {
-		return permissions;
+	public String getRole() {
+		return role;
 	}
-	public void setPermissions(String permissions) {
-		this.permissions = permissions;
+	public void setRole(String role) {
+		this.role = role;
 	}
 	public boolean getIsLoggedIn() {
 		return isLoggedIn;
@@ -87,7 +87,7 @@ public class User implements Serializable{
 	public void printUser() {
 		System.out.println("User Name: "+ userName);
 		System.out.println("password: "+ password);
-		System.out.println("permissions: "+ permissions);
+		System.out.println("role: "+ role);
 		System.out.println("ID: "+ id);
 		System.out.println("First name: "+Fname);
 		System.out.println("Last Name: "+lastName);
@@ -99,7 +99,7 @@ public class User implements Serializable{
 		if (user.getUserName().equals(this.getUserName()) && user.getPassword().equals(this.getPassword()))
 				if(user.getEmail().equals(this.getEmail()) && user.getFName().equals(this.getFName()))
 					if(user.getId().equals(this.getId()) && user.getLastName().equals(this.getLastName()))
-						if(user.getPermissions().equals(this.getPermissions()))
+						if(user.getRole().equals(this.getRole()))
 							return true;
 		return false;
 	}
