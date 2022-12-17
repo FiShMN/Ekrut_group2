@@ -13,7 +13,7 @@ public enum MessageType {
 	Order_delivered,Download_PDF_Report,Change_status_to_delivered_Succ,Order_Done,Show_Histogram,
 	
 	//types of users
-	Customer,ClubMember,CEO,RegionManager,StockWorker,CustomerServiceWorker,
+	Customer,ClubMember,CEO,RegionManager,StockWorker,CustomerServiceWorker,DeliveryOperator,
 	
 	//Error
 	Error;
