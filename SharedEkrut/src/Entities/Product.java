@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 
 public class Product implements Serializable {
-	private static final long serialVersionUID = -2028421550470538558L;
+	private static final long serialVersionUID = -2028421550470538558L;//???????
 	private String productName,productCode;
 	private float price;
 	private int quantity;

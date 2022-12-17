@@ -1,17 +1,22 @@
 package Entities;
 import java.io.Serializable;
 public class User implements Serializable{
-	
-	private String name;
+	private static final long serialVersionUID = -7030442615498290778L;
+	private String Fname;
 	private String lastName;
-	private int id;
-	private int phoneNumber;
+	private String id;
+	private String phoneNumber;
 	private String email;
+	private String userName;
+	private String password;
+	private String permissions;
+	private boolean isLoggedIn;
 	
-	public User(String name, String lastName, int id, int phoneNumber, String email, String userName, String password,
-			String permissions) {
+	
+	public User(String Fname, String lastName, String id, String phoneNumber, String email, String userName, String password,
+			String permissions, boolean isLoggedIn) {
 		super();
-		this.name = name;
+		this.Fname = Fname;
 		this.lastName = lastName;
 		this.id = id;
 		this.phoneNumber = phoneNumber;
@@ -19,12 +24,17 @@ public class User implements Serializable{
 		this.userName = userName;
 		this.password = password;
 		this.permissions = permissions;
+		this.isLoggedIn=isLoggedIn;
+		
 	}
-	public String getName() {
-		return name;
+	public User() {
+		// TODO Auto-generated constructor stub
 	}
-	public void setName(String name) {
-		this.name = name;
+	public String getFName() {
+		return Fname;
+	}
+	public void setFName(String Fname) {
+		this.Fname = Fname;
 	}
 	public String getLastName() {
 		return lastName;
@@ -32,16 +42,16 @@ public class User implements Serializable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getEmail() {
@@ -68,7 +78,29 @@ public class User implements Serializable{
 	public void setPermissions(String permissions) {
 		this.permissions = permissions;
 	}
-	private String userName;
-	private String password;
-	private String permissions;
+	public boolean getIsLoggedIn() {
+		return isLoggedIn;
+	}
+	public void setIsLoggedIn(boolean isLoggedIn) {
+		this.isLoggedIn=isLoggedIn;
+	}
+	public void printUser() {
+		System.out.println("User Name: "+ userName);
+		System.out.println("password: "+ password);
+		System.out.println("permissions: "+ permissions);
+		System.out.println("ID: "+ id);
+		System.out.println("First name: "+Fname);
+		System.out.println("Last Name: "+lastName);
+	}
+	//for test
+	@Override
+	public boolean equals(Object u) {
+		User user=(User)u;
+		if (user.getUserName().equals(this.getUserName()) && user.getPassword().equals(this.getPassword()))
+				if(user.getEmail().equals(this.getEmail()) && user.getFName().equals(this.getFName()))
+					if(user.getId().equals(this.getId()) && user.getLastName().equals(this.getLastName()))
+						if(user.getPermissions().equals(this.getPermissions()))
+							return true;
+		return false;
+	}
 }
