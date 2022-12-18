@@ -137,6 +137,8 @@ public class SubscriberFrameController implements Initializable
 				//ClientUI.clientControl.accept(updateSub);
 			}
 		});	
+		
+		
 		ClientMenuController.clientControl.accept(new ArrayList<>());
 		
 	}

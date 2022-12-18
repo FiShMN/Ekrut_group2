@@ -4,7 +4,7 @@ public class Worker extends User{
 	private String jobType;
 	private String region;
 
-	public Worker(String name, String lastName, int id, int phoneNumber, String email, String userName, String password,
+	public Worker(String name, String lastName, String id, String phoneNumber, String email, String userName, String password,
 			String permissions, String jobType, String region) {
 		super(name, lastName, id, phoneNumber, email, userName, password, permissions);
 		this.jobType = jobType;

@@ -1,5 +1,6 @@
 package Entities;
 import java.io.Serializable;
+
 public class User implements Serializable{
 	private static final long serialVersionUID = -7030442615498290778L;
 	private String Fname;

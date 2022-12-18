@@ -67,9 +67,25 @@ public class ChatClient extends AbstractClient
    */
   public void handleMessageFromServer(Object msg) 
   {
-	  if(msg instanceof ArrayList) {
-		  ClientMenuController.subFrame.showSubToTable((ArrayList<String>) msg);
+	  
+	  if(msg instanceof String[]) {
+		 // ClientMenuController.subFrame.showSubToTable((ArrayList<String>) msg);
+		String[] message = (String[]) msg;
+		  switch ((String)message[0]) { 
+			case "login":
+				System.out.println("login:" + message[1]);
+				if(message[1].equals("Wrong_Input"))
+					ClientMenuController.loginFrame.setAlertLbl("Wrong user name or password!");
+				else if(message[1].equals("Already_logged_in"))
+					ClientMenuController.loginFrame.setAlertLbl("User already loggedIn");
+				else {
+				String[] data = message[1].split("#");
+				ClientMenuController.loginFrame.openFrameByRole(data[5]); //role in place 5
+				}
+				break;
 	  }
+		  }
+	  
   }
 
   /**
@@ -81,6 +97,7 @@ public class ChatClient extends AbstractClient
   {
     try
     {
+    	
     	sendToServer(message);  
     }
     catch(IOException e)

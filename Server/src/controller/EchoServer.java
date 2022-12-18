@@ -10,6 +10,7 @@ import gui.ServerPortFrameController;
 import gui.ServerUI;
 import db.ShowSubscriber;
 import db.UpdateDB;
+import db.Query;
 /**
  * This class overrides some of the methods in the abstract superclass in order
  * to give more functionality to the server.
@@ -49,21 +50,55 @@ public class EchoServer extends AbstractServer {
 	 * @param client The connection from which the message originated.
 	 */
 	public void handleMessageFromClient(Object msg, ConnectionToClient client) {
-		  
-		if(msg instanceof String) {
+		
+		
+		
+		//type: login
+		////Connecting client to server
+		//if(msg instanceof String) {
 			
-			if(msg.toString().equals("disconnect")) {
-				ServerUI.serverGUI.appendToConsole( client.getName() + " has disconnected"); 
-			}
-			else {
-			client.setName("client #"+clientNumber+" (" +msg.toString()+ ") ");
-			clientNumber++;
-			ServerUI.serverGUI.appendToConsole( client.getName() + " connected successfully"); 
-			}
+			
+			String [] message = ((String)msg).split("%"); // message[0] - typeOfMessage
+																			//message[1] - data
+			
+			
+			switch (message[0]) { 
+			case "login":
+				String[] data = message[1].split("#");
+				try {
+					message[1]=Query.checkLogin(data[0], data[1]);
+					client.sendToClient((Object)message);
 				
-		}
-		else {
-		  ArrayList<String> message = (ArrayList<String>)msg;
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				break;
+				
+			case "disconnect":
+			
+				ServerUI.serverGUI.appendToConsole( client.getName() + " has disconnected"); 
+			break;
+			
+			case "connectToServer":
+				client.setName("client #"+clientNumber+" (" +message[1]+ ") ");
+				clientNumber++;
+				ServerUI.serverGUI.appendToConsole( client.getName() + " connected successfully"); 
+				break;
+			
+			
+			
+			
+			
+			
+			default:
+				break;
+			}
+			
+		//}else {
+			
+			///Update Subscriber: CreditCard, Id
+		/*  ArrayList<String> message = (ArrayList<String>)msg;
 		  try {
 			  if(message.size() == 3) {
 		  UpdateDB.UpdateSubscriberCreditCard(message.get(2), message.get(0));
@@ -78,15 +113,9 @@ public class EchoServer extends AbstractServer {
 		  }catch(Exception e) { System.out.println(message + " : not saved"); }
 		
 		  ServerUI.serverGUI.appendToConsole("Message received from " + client.getName()); 
-		}
+		}*/
 		
-		 try {
-			 
-			client.sendToClient(msg);   //send to client subscriber DB 
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 		 
 	}
 

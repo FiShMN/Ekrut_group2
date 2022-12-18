@@ -17,7 +17,9 @@ public class ClientMenuController {
 	
 	public static ClientController clientControl;
 	
-	public  static SubscriberFrameController subFrame;
+	public  static SubscriberFrameController subFrame; //?
+	
+	public  static LoginFrameController loginFrame;
 
 	public static Stage clientStage;
 	
@@ -27,19 +29,27 @@ public class ClientMenuController {
     @FXML
     private TextField txtPort;
 
+    /**
+     * Creates new frame LoginFrameController and connect to server. 
+     * @param event (Click on connect button)
+     * @throws UnknownHostException
+     */
     @FXML
     void connectClient(ActionEvent event) throws UnknownHostException {
     	
     	String Ip = txtIp.getText();
+    	
     	int Port = Integer.parseInt(txtPort.getText()); // need To test if the arguments are empty
     	
 		clientControl = new ClientController(Ip, Port);
-		subFrame = new SubscriberFrameController();
-		ClientMenuController.clientControl.accept(Inet4Address.getLocalHost().getHostAddress());
+		//subFrame = new SubscriberFrameController();
+		loginFrame = new LoginFrameController();
+		ClientMenuController.clientControl.accept(("connectToServer%"+(Inet4Address.getLocalHost().getHostAddress())));
 		try {
-			subFrame.start(clientStage);
+			//subFrame.start(clientStage); //Changing primary stage to subFrame
+			loginFrame.start(clientStage);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} //send to UI
 		

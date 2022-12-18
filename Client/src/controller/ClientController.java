@@ -54,6 +54,7 @@ public class ClientController implements ChatIF
     try 
     {
       client= new ChatClient(host, port, this);
+      System.out.println(client);
     } 
     catch(IOException exception) 
     {
@@ -73,6 +74,7 @@ public class ClientController implements ChatIF
   public void accept(Object msg) 
   {
    
+	  	
         client.handleMessageFromClientUI(msg); //send to server to EchoServer
       }
    
