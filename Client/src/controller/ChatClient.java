@@ -9,6 +9,7 @@ import common.*;
 import entity.Subscriber;
 import gui.ClientMenuController;
 import gui.ClientUI;
+import javafx.event.ActionEvent;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -48,6 +49,8 @@ public class ChatClient extends AbstractClient
    * @param clientUI The interface type variable.
    */
   
+  public static int toWrite; // =1 - > Wrong input =2-> Already logged in
+  
   public ChatClient(String host, int port, ChatIF clientUI) 
     throws IOException 
   {
@@ -71,13 +74,22 @@ public class ChatClient extends AbstractClient
 	  if(msg instanceof String[]) {
 		 // ClientMenuController.subFrame.showSubToTable((ArrayList<String>) msg);
 		String[] message = (String[]) msg;
+		 
 		  switch ((String)message[0]) { 
 			case "login":
 				System.out.println("login:" + message[1]);
 				if(message[1].equals("Wrong_Input"))
-					ClientMenuController.loginFrame.setAlertLbl("Wrong user name or password!");
+				{
+					System.out.println("hi1");
+					this.toWrite = 1;
+					ClientMenuController.loginFrame.condition(toWrite);
+				}
 				else if(message[1].equals("Already_logged_in"))
-					ClientMenuController.loginFrame.setAlertLbl("User already loggedIn");
+				{
+					System.out.println("hi2");
+					this.toWrite = 2;
+					ClientMenuController.loginFrame.condition(toWrite);
+				}
 				else {
 				String[] data = message[1].split("#");
 				ClientMenuController.loginFrame.openFrameByRole(data[5]); //role in place 5
@@ -87,6 +99,7 @@ public class ChatClient extends AbstractClient
 		  }
 	  
   }
+  
 
   /**
    * This method handles all data coming from the UI            

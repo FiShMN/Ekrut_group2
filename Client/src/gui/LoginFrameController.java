@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 
+import controller.ChatClient;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -17,6 +18,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class LoginFrameController {
+	public int num;
+	ChatClient ch;
 
 	 @FXML
 	 private PasswordField txtPassword;
@@ -39,9 +42,11 @@ public class LoginFrameController {
     	StringBuilder str = new StringBuilder();
     	String password = txtPassword.getText();
     	String userName = txtUserName.getText();
+    	int num2;
     	
     	if(password.isEmpty() || userName.isEmpty())
     		lblAlert.setText("Please fill both user name and password");
+    
     	else {
     		//create data to server
     		str.append("login");
@@ -52,17 +57,33 @@ public class LoginFrameController {
     		System.out.println(str);
     		ClientMenuController.clientControl.accept(str.toString());
     	}
-    
-   
-    	
+    	num2 = ChatClient.toWrite;
+    	//num2 = this.num;
+    	//System.out.println(this.num);
+    	System.out.println(num2);
+    	if(num2==1)
+    	{
+    		lblAlert.setText("Wrong user name or password!");
+    	}
+    	else if(num2==2)
+    	{
+    		lblAlert.setText("User already loggedIn");
+    	}
+		
     }
     
-    public void setAlertLbl(String str) {
+  /*  public void setAlertLbl(String str) {
     	//Observable msg = FXCollections.o
     	System.out.println("LoginFrame: "+ str);
     	lblAlert.setText(str);
     	
-    }
+    }*/
+    
+    public void condition(int x) {
+    	this.num=x;
+    	System.out.println(this.num);
+    	
+	}
     
     
     public void openFrameByRole(String role) {

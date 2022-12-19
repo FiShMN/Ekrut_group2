@@ -25,7 +25,7 @@ public class mysqlConnection {
         
         try 
         {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/db_ekrut?serverTimezone=IST","root", "A02/01/1997");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/db_ekrut?serverTimezone=IST","root", "Bleach135");
             ServerUI.serverGUI.appendToConsole("SQL connection succeed");
        
             
