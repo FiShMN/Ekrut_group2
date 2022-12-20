@@ -1,53 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConfirmOrderFrameController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConfirmOrderFrameController">
    <children>
-      <ListView layoutX="600.0" prefHeight="500.0" prefWidth="330.0" />
-      <VBox fx:id="vBoxCart" layoutX="600.0" layoutY="29.0" prefHeight="471.0" prefWidth="330.0">
-         <children>
-            <Pane fx:id="paneLineCart" layoutY="50.0" prefHeight="43.0" prefWidth="200.0">
+      <BorderPane layoutX="250.0" layoutY="100.0" prefHeight="400.0" prefWidth="400.0">
+         <center>
+            <TableView fx:id="tblInvoice" prefHeight="438.0" prefWidth="330.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="colAmount" prefWidth="73.5999755859375" text="Amount" />
+                <TableColumn fx:id="colProductName" minWidth="0.0" prefWidth="219.20004272460938" text="Product name" />
+                  <TableColumn fx:id="colPrice" prefWidth="107.199951171875" text="Price" />
+              </columns>
+            </TableView>
+         </center>
+         <top>
+            <Label text="Invoice:" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+         </top>
+         <bottom>
+            <HBox alignment="TOP_CENTER" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="imgProductCart" fitHeight="31.0" fitWidth="36.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="lblProductNameCart" layoutX="64.0" layoutY="11.0" text="product name" />
-                  <Label fx:id="lblQuantityCart" layoutX="177.0" layoutY="11.0" text="quantity" />
-                  <Label fx:id="lblProductPriceCart" layoutX="253.0" layoutY="11.0" text="price" />
+                  <Label text="Total Price:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTotalPrice" text="price $$$">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
                </children>
-            </Pane>
+            </HBox>
+         </bottom>
+      </BorderPane>
+      <Button layoutX="41.0" layoutY="516.0" mnemonicParsing="false" onAction="#go_Back" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: cyan;" text="Back">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <VBox layoutX="19.0" layoutY="134.0" spacing="10.0">
+         <children>
+            <Label fx:id="lblCustomerName" text="Customer:" />
+            <Label fx:id="lblCustomerNumber" text="Customer number:" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutX="739.0" layoutY="417.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#confirmOrder" prefHeight="31.0" prefWidth="112.0" style="-fx-background-color: green;" text="Confirm">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#cancelOrder" style="-fx-background-color: red;" text="Cancel Order">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
-      <Button fx:id="btnConfirmOrder" layoutX="843.0" layoutY="561.0" mnemonicParsing="false" onAction="#confirmOrder" style="-fx-background-color: green;" text="Confirm">
+      <Label layoutX="-26.0" layoutY="265.0" rotate="270.0" text="ORDER">
          <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="788.0" layoutY="510.0" text="Total:">
-         <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotalPrice" layoutX="851.0" layoutY="511.0" text="price $$$">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="609.0" layoutY="4.0" text="Invoice:">
-         <font>
-            <Font name="System Italic" size="20.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnCancelOrder" layoutX="618.0" layoutY="561.0" mnemonicParsing="false" onAction="#cancelOrder" style="-fx-background-color: red;" text="Cancel Order">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

@@ -2,40 +2,32 @@ package gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class ConfirmOrderFrameController {
 
     @FXML
-    private VBox vBoxCart;
+    private TableColumn<?, ?> colAmount;
 
     @FXML
-    private Pane paneLineCart;
+    private TableColumn<?, ?> colPrice;
 
     @FXML
-    private ImageView imgProductCart;
+    private TableColumn<?, ?> colProductName;
 
     @FXML
-    private Label lblProductNameCart;
+    private Label lblCustomerName;
 
     @FXML
-    private Label lblQuantityCart;
-
-    @FXML
-    private Label lblProductPriceCart;
-
-    @FXML
-    private Button btnConfirmOrder;
+    private Label lblCustomerNumber;
 
     @FXML
     private Label lblTotalPrice;
 
     @FXML
-    private Button btnCancelOrder;
+    private TableView<?> tblInvoice;
 
     @FXML
     void cancelOrder(ActionEvent event) {
@@ -44,6 +36,11 @@ public class ConfirmOrderFrameController {
 
     @FXML
     void confirmOrder(ActionEvent event) {
+
+    }
+
+    @FXML
+    void go_Back(ActionEvent event) {
 
     }
 
