@@ -6,6 +6,7 @@ import controller.ChatClient;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,8 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class LoginFrameController {
-	public int num;
-	ChatClient ch;
+	public String str2;
 
 	 @FXML
 	 private PasswordField txtPassword;
@@ -35,6 +35,8 @@ public class LoginFrameController {
 
     @FXML
     private TextField txtUserName;
+    
+
 
     @FXML
     void pressEnter(ActionEvent event) {
@@ -42,7 +44,7 @@ public class LoginFrameController {
     	StringBuilder str = new StringBuilder();
     	String password = txtPassword.getText();
     	String userName = txtUserName.getText();
-    	int num2;
+    	String str3;
     	
     	if(password.isEmpty() || userName.isEmpty())
     		lblAlert.setText("Please fill both user name and password");
@@ -56,34 +58,35 @@ public class LoginFrameController {
     		str.append(password);
     		System.out.println(str);
     		ClientMenuController.clientControl.accept(str.toString());
-    	}
-    	num2 = ChatClient.toWrite;
-    	//num2 = this.num;
-    	//System.out.println(this.num);
-    	System.out.println(num2);
-    	if(num2==1)
-    	{
-    		lblAlert.setText("Wrong user name or password!");
-    	}
-    	else if(num2==2)
-    	{
-    		lblAlert.setText("User already loggedIn");
+    		if(ChatClient.user.getFName().equals("error1"))
+    		{
+    			lblAlert.setText("Wrong user name or password!");
+    			
+    		}
+    		else if(ChatClient.user.getFName().equals("error2"))
+    		{
+    			lblAlert.setText("User already loggedIn");
+    		}
     	}
 		
     }
     
-  /*  public void setAlertLbl(String str) {
+    
+    
+    public void setAlertLbl(String str) {
     	//Observable msg = FXCollections.o
     	System.out.println("LoginFrame: "+ str);
     	lblAlert.setText(str);
     	
-    }*/
+    }
     
-    public void condition(int x) {
-    	this.num=x;
-    	System.out.println(this.num);
+    public void setAlertLbl2(String message) {
+    	//Observable msg = FXCollections.o
+    	System.out.println("LoginFrame: "+ message);
+    	this.str2 = message;
     	
-	}
+    }
+    
     
     
     public void openFrameByRole(String role) {

@@ -15,6 +15,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 import Entities.Product;
+import Entities.User;
 import Entities.Message;
 import Entities.Order;
 
@@ -50,7 +51,7 @@ public class ChatClient extends AbstractClient
    */
   
   public static int toWrite; // =1 - > Wrong input =2-> Already logged in
-  
+  public static User user = new User();
   public ChatClient(String host, int port, ChatIF clientUI) 
     throws IOException 
   {
@@ -74,21 +75,32 @@ public class ChatClient extends AbstractClient
 	  if(msg instanceof String[]) {
 		 // ClientMenuController.subFrame.showSubToTable((ArrayList<String>) msg);
 		String[] message = (String[]) msg;
-		 
+		//ClientMenuController.loginFrame.setAlertLbl2(message[1]);
+		if(message[1].equals("Wrong_Input"))
+		{
+			user.setFName("error1");
+		}
+		else if(message[1].equals("Already_logged_in"))
+		{
+			user.setFName("error2");
+		}
+		
 		  switch ((String)message[0]) { 
 			case "login":
 				System.out.println("login:" + message[1]);
 				if(message[1].equals("Wrong_Input"))
 				{
+					//user.setFName("error1");
 					System.out.println("hi1");
-					this.toWrite = 1;
-					ClientMenuController.loginFrame.condition(toWrite);
+					//this.toWrite = 1;
+					
 				}
 				else if(message[1].equals("Already_logged_in"))
 				{
+					//user.setFName("error2");
 					System.out.println("hi2");
-					this.toWrite = 2;
-					ClientMenuController.loginFrame.condition(toWrite);
+					//this.toWrite = 2;
+					
 				}
 				else {
 				String[] data = message[1].split("#");
