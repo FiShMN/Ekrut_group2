@@ -1,10 +1,16 @@
 package gui;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class ConfirmOrderFrameController {
 
@@ -43,5 +49,20 @@ public class ConfirmOrderFrameController {
     void go_Back(ActionEvent event) {
 
     }
+
+	public void start(Stage orderStage) throws IOException {
+		
+		Parent root = FXMLLoader.load(getClass().getResource("/gui/OrderFrame.fxml"));
+		Scene home = new Scene(root);
+		orderStage.setScene(home);
+
+		// On pressing X (close window) the client is disconnect from server.
+		orderStage.setOnCloseRequest(e -> {
+			ClientMenuController.clientControl.accept("disconnect");
+		});
+		orderStage.show();
+		// TODO Auto-generated method stub
+		
+	}
 
 }
